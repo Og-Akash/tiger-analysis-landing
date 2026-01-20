@@ -7,13 +7,19 @@ import TestimonialGrid from "../testimonials/testimonial-grid";
 import { BackgroundPatternSectionProps, BlockCardSectionProps, TestimonialGridSectionProps, TitleBlockSectionProps, TitleBlocksResponse } from "@/types";
 
 export default async function TitleBlocksSection({ data }: { data: TitleBlockSectionProps }) {
-  const response = await client.query({
-    query: GET_TITLE_BLOCK_DATA,
-  });
+  let titleBlockData: TitleBlocksResponse | null = null;
 
-  if (response.error) return null;
+  try {
+    const response = await client.query({
+      query: GET_TITLE_BLOCK_DATA,
+    });
+    titleBlockData = response.data as TitleBlocksResponse;
+  } catch (error) {
+    console.error("Failed to fetch TitleBlock data:", error);
+    return null;
+  }
 
-  const titleBlockData = response.data as TitleBlocksResponse
+  if (!titleBlockData || !titleBlockData.titleBlocks?.length) return null;
   const title = titleBlockData.titleBlocks[0].title
 
   return (
@@ -46,15 +52,15 @@ export default async function TitleBlocksSection({ data }: { data: TitleBlockSec
           titleBlockData.titleBlocks[0]?.conte_blocks.length > 0 &&
           titleBlockData.titleBlocks[0].conte_blocks.map((data, i) => {
             if (data.__typename == "ComponentBlockBlockCard" || i == 0) {
-              return <TabbedShowcase data={data as BlockCardSectionProps} key={data.id } />;
-            } 
+              return <TabbedShowcase data={data as BlockCardSectionProps} key={data.id} />;
+            }
             else if (data.__typename === "ComponentBlockTestimonialGrid") {
               return <TestimonialGrid data={data as TestimonialGridSectionProps} key={data.id} />;
             }
-             else if (data.__typename === "ComponentBlockBackgroundPattern") {
+            else if (data.__typename === "ComponentBlockBackgroundPattern") {
               return <BackgroundPatternSection data={data as BackgroundPatternSectionProps} key={data.id} />;
             }
-             else {
+            else {
               return null;
             }
           })}
