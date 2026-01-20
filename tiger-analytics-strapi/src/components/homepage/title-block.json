@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_title_blocks",
+  "info": {
+    "displayName": "Title block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "background_color": {
+      "type": "string",
+      "default": "#1E0903"
+    }
+  },
+  "config": {}
+}

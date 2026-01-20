@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_navbar_sub_menu_links",
+  "info": {
+    "displayName": "sub-menu-item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_blank",
+        "_self"
+      ]
+    }
+  },
+  "config": {}
+}

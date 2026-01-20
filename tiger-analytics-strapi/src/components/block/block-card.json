@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_block_block_cards",
+  "info": {
+    "displayName": "block-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "tag": {
+      "type": "component",
+      "component": "block.card-tag",
+      "repeatable": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta-btn",
+      "repeatable": false
+    },
+    "tabs": {
+      "type": "component",
+      "component": "block.card-tab",
+      "repeatable": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ]
+    }
+  },
+  "config": {}
+}

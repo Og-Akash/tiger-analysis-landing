@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_sponsors",
+  "info": {
+    "displayName": "sponsor"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

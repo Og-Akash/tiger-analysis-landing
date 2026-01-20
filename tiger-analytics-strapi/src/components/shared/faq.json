@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_faqs",
+  "info": {
+    "displayName": "Faq"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text",
+      "required": true
+    },
+    "answer": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true,
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

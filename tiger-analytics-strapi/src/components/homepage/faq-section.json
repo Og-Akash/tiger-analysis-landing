@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_homepage_faq_sections",
+  "info": {
+    "displayName": "Faq section"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "background_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "faqs": {
+      "type": "component",
+      "component": "shared.faq",
+      "repeatable": true,
+      "required": true
+    },
+    "heading": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_background_patterns",
+  "info": {
+    "displayName": "background pattern"
+  },
+  "options": {},
+  "attributes": {
+    "background_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "leader_board_block": {
+      "type": "component",
+      "component": "shared.leader-board",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

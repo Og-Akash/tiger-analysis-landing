@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "title_blocks",
+  "info": {
+    "singularName": "title-block",
+    "pluralName": "title-blocks",
+    "displayName": "Title block"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "conte_blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "block.background-pattern",
+        "block.testimonial-grid",
+        "block.block-card"
+      ],
+      "required": true
+    }
+  }
+}

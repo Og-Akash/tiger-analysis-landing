@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_footer_legal_links",
+  "info": {
+    "displayName": "legal_link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "_blank",
+      "enum": [
+        "_blank",
+        "_self"
+      ]
+    }
+  },
+  "config": {}
+}

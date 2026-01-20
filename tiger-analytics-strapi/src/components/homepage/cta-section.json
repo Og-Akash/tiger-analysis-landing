@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_homepage_cta_sections",
+  "info": {
+    "displayName": "Cta section"
+  },
+  "options": {},
+  "attributes": {
+    "cta_bg_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "cta_btn": {
+      "type": "component",
+      "component": "shared.cta-btn",
+      "repeatable": false
+    },
+    "cta_heading": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

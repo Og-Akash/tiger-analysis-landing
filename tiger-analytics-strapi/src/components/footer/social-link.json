@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_footer_social_links",
+  "info": {
+    "displayName": "Social link"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "instagram",
+        "twitter",
+        "linkedin",
+        "youtube"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "_self",
+      "enum": [
+        "_blank",
+        "_self"
+      ]
+    }
+  },
+  "config": {}
+}

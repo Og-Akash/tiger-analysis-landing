@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_card_tags",
+  "info": {
+    "displayName": "card-tag"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "cyan",
+        "orange",
+        "green"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_shared_leader_boards",
+  "info": {
+    "displayName": "Leader board"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta-btn",
+      "repeatable": false
+    },
+    "status_title": {
+      "type": "text",
+      "required": true
+    },
+    "status_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

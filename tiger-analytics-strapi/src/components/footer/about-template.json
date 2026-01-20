@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_footer_about_templates",
+  "info": {
+    "displayName": "about_template"
+  },
+  "options": {},
+  "attributes": {
+    "design_by": {
+      "type": "text"
+    },
+    "releavant_links": {
+      "type": "component",
+      "component": "footer.legal-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

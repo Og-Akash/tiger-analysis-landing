@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_homepage_highlights",
+  "info": {
+    "displayName": "highlight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "content": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "cta_btn": {
+      "type": "component",
+      "component": "shared.cta-btn",
+      "repeatable": false
+    },
+    "highlight_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

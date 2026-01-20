@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_shared_cta_btns",
+  "info": {
+    "displayName": "cta_btn",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "cta_link": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "destructive",
+        "outline",
+        "outline-dark",
+        "secondary",
+        "raised",
+        "raised-vibrant",
+        "ghost",
+        "link"
+      ]
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "_self",
+      "enum": [
+        "_blank",
+        "_self"
+      ]
+    }
+  },
+  "config": {}
+}

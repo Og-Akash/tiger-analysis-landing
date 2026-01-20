@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_sponsors",
+  "info": {
+    "displayName": "sponsors"
+  },
+  "options": {},
+  "attributes": {
+    "sponsors": {
+      "type": "component",
+      "component": "shared.sponsor",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

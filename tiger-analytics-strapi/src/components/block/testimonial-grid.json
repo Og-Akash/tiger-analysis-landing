@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_block_testimonial_grids",
+  "info": {
+    "displayName": "Testimonial grid"
+  },
+  "options": {},
+  "attributes": {
+    "heading_1": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "heading_2": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "shared.testimonial",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

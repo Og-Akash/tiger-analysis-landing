@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_homepage_promo_banners",
+  "info": {
+    "displayName": "Promo banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "line_1": {
+      "type": "text"
+    },
+    "line_2": {
+      "type": "text"
+    },
+    "line_3": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta-btn",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_navbar_menu_links",
+  "info": {
+    "displayName": "menu-item",
+    "icon": "cog"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_blank",
+        "_self"
+      ]
+    },
+    "sub_menu_links": {
+      "type": "component",
+      "component": "navbar.sub-menu-links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

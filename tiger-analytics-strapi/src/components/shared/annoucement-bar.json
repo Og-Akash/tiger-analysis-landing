@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_annoucement_bars",
+  "info": {
+    "displayName": "annoucement_bar"
+  },
+  "options": {},
+  "attributes": {
+    "annouce_content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
