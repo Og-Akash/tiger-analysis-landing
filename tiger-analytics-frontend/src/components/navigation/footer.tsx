@@ -175,7 +175,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-4 rounded-3xl flex justify-between items-center bg-[#0F1415] px-8 py-6 md:px-12">
+        <div className="mt-4 rounded-3xl flex max-sm:flex-col gap-4 justify-between items-center bg-[#0F1415] px-8 py-6 md:px-12">
           <div>
             <h3 className="text-sm text-[#838383]">
               {about_template?.[0].design_by}
