@@ -13,6 +13,12 @@ module.exports = ({ env }) => ({
   secrets: {
     encryptionKey: env('ENCRYPTION_KEY'),
   },
+  url: env('PUBLIC_URL', '/admin'),
+  serveAdminPanel: env.bool('SERVE_ADMIN', true),
+  forgotPassword: {
+    from: env('EMAIL_FROM'),
+    replyTo: env('EMAIL_REPLY_TO'),
+  },
   flags: {
     nps: env.bool('FLAG_NPS', true),
     promoteEE: env.bool('FLAG_PROMOTE_EE', true),
