@@ -7,8 +7,20 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'https:'],
-          'media-src': ["'self'", 'data:', 'blob:', 'https:'],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'dl.airtable.com',
+            'https://tiger-analysis-strapi.onrender.com',
+          ],
+          'media-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'dl.airtable.com',
+            'https://tiger-analysis-strapi.onrender.com',
+          ],
           upgradeInsecureRequests: null,
         },
       },
