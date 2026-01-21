@@ -1,14 +1,18 @@
 module.exports = {
   register({ strapi }) {
-    // Log incoming requests to debug
+    // Force trust proxy headers
+    strapi.server.proxy = true;
+    
+    // Manually set secure flag based on X-Forwarded-Proto
     strapi.server.use(async (ctx, next) => {
-      console.log('Protocol:', ctx.protocol);
-      console.log('Secure:', ctx.secure);
-      console.log('Headers:', {
-        'x-forwarded-proto': ctx.get('x-forwarded-proto'),
-        'x-forwarded-host': ctx.get('x-forwarded-host'),
-      });
+      const proto = ctx.get('x-forwarded-proto');
+      if (proto === 'https') {
+        ctx.request.secure = true;
+        ctx.request.protocol = 'https';
+      }
       await next();
     });
   },
+
+  bootstrap(/*{ strapi }*/) {},
 };
