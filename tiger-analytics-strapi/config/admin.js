@@ -11,6 +11,7 @@ module.exports = ({ env }) => ({
     },
   },
   url: '/admin', // Admin panel path
+  forceSecureCookie: env.bool('STRAPI_ADMIN_FORCE_SECURE_COOKIE', false),
   secrets: {
     encryptionKey: env('ENCRYPTION_KEY'),
   },
