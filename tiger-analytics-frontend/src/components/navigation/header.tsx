@@ -28,7 +28,6 @@ export default function Header() {
   const announcementsRef = useRef<HTMLDivElement>(null);
 
   const { data, loading } = useQuery<NavigationResponse>(GET_NAVIGATION);
-  //   console.log("navigation:", data);
 
   useEffect(() => {
     if (announcementsRef.current) {
@@ -62,12 +61,13 @@ export default function Header() {
   // Show nothing while loading or if no data
   if (loading || !data?.navbars?.length) return null;
 
-  const rightNavbar = data.navbars[0]; // Get the right navbar
-  const leftNavbar = data.navbars[1]; // Get the left navbar
+  const rightNavbar = data.navbars.find(nav => nav.position === "right"); // Get the right navbar
+  const leftNavbar = data.navbars.find(nav => nav.position === "left"); // Get the left navbar
 
   const logoUrl = leftNavbar?.site_logo
     ? getImageUrl(leftNavbar?.site_logo?.url)
     : null;
+
 
   return (
     <div className="fixed top-0 z-50 w-full pointer-events-none">
@@ -94,7 +94,7 @@ export default function Header() {
                       <Image
                         src={logoUrl}
                         alt={
-                          leftNavbar.site_logo.alternativeText ??
+                          leftNavbar?.site_logo.alternativeText ??
                           "Tiger Analytics logo"
                         }
                         width={140}
@@ -107,15 +107,15 @@ export default function Header() {
                 )}
               </NavigationMenuItem>
 
-              <NavItems items={leftNavbar.menu_links} />
+              <NavItems items={leftNavbar?.menu_links || []} />
             </NavigationMenuList>
             <NavigationMenuList className="gap-10 px-4 h-16 bg-white rounded-md pointer-events-auto">
-              <NavItems items={rightNavbar.menu_links} />
+              <NavItems items={rightNavbar?.menu_links || []} />
             </NavigationMenuList>
           </NavigationMenu>
 
           <div className="lg:hidden">
-            <MobileMenu navbar={leftNavbar} />
+            <MobileMenu navbar={leftNavbar || []} />
           </div>
         </div>
       </motion.header>

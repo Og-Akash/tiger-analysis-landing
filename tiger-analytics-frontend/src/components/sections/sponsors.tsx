@@ -36,7 +36,6 @@ export default function SponsorsSection({ data }: {data: SponsorsSectionProps}) 
                       width={128}
                     />
                   </MarqueeItem>
-                  ;
                 </>
               );
             })}

@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       {
         hostname : "localhost",
         port: "1337"
+      },
+      {
+        hostname : "tiger-analysis-strapi.onrender.com",
       }
     ]
   }
