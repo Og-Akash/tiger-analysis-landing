@@ -8,11 +8,12 @@ module.exports = [
         directives: {
           'connect-src': ["'self'", 'https:'],
           'img-src': [
-            "'self'",
+            "self",
             'data:',
             'blob:',
             'dl.airtable.com',
             'https://tiger-analysis-strapi.onrender.com',
+            'https://res.cloudinary.com',
           ],
           'media-src': [
             "'self'",
@@ -20,6 +21,7 @@ module.exports = [
             'blob:',
             'dl.airtable.com',
             'https://tiger-analysis-strapi.onrender.com',
+            'https://res.cloudinary.com',
           ],
           upgradeInsecureRequests: null,
         },
