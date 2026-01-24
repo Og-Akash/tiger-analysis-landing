@@ -3,6 +3,7 @@ import { HeroSectionProps } from "../../types";
 import LayoutWrapper from "../layouts/layout-wrapper";
 import { Button, ButtonVariantType } from "../ui/button";
 import Link from "next/link";
+import { getImageUrl } from "@/lib/utils";
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
@@ -10,7 +11,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   heroImage,
   subTitle,
 }) => {
-  const imageUrl = process.env.NEXT_PUBLIC_STRAPI_URL + heroImage.url;
+  const imageUrl = getImageUrl(heroImage.url);
 
   return (
     <section

@@ -7,8 +7,12 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getImageUrl(url: string) {
+
   if (url.trim() === "") {
     return null;
+  }
+  if(url.includes('https://res.cloudinary.com')){
+    return url;
   }
 
   return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;

@@ -30,6 +30,16 @@
     "heading": {
       "type": "text",
       "required": true
+    },
+    "gradient_overlay": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

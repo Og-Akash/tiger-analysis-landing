@@ -179,6 +179,9 @@ export interface HomepageFaqSection extends Struct.ComponentSchema {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     faqs: Schema.Attribute.Component<'shared.faq', true> &
       Schema.Attribute.Required;
+    gradient_overlay: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     heading: Schema.Attribute.Text & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
   };

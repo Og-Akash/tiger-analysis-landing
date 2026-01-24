@@ -1,34 +1,49 @@
-import { client } from "@/lib/apollo-client";
-import { GET_HOMEDATA } from "@/lib/query/getLandingData"
+"use client";
+
+import { useQuery } from "@apollo/client/react";
+import { GET_HOMEDATA } from "@/lib/query/getLandingData";
 import { HomepageResponse, HomepageSection } from "@/types";
-import { componentMap, propsMap, ComponentKey } from "@/components/component-mapper";
+import {
+  componentMap,
+  propsMap,
+  ComponentKey,
+} from "@/components/component-mapper";
 
-export const dynamic = "force-dynamic";
+export default function HomePage() {
+  let homeDataResponse: HomepageResponse | null = null;
+  const { data, loading, error } = useQuery(GET_HOMEDATA, {
+    fetchPolicy: "network-only",
+  });
 
-export default async function HomePage() {
-  let data: HomepageResponse | null = null;
+  homeDataResponse = data as HomepageResponse
 
-  try {
-    const response = await client.query({
-      query: GET_HOMEDATA,
-    });
-    data = response.data as HomepageResponse;
-  } catch (error) {
+  if (loading) {
+    return (
+      <div className="flex h-screen w-full bg-black items-center justify-center">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-black dark:border-gray-600 dark:border-t-white" />
+      </div>
+    );
+  }
+
+  if (error) {
     console.error("Failed to fetch homepage data:", error);
+    return null; // Or render a friendly error message
   }
 
   const renderSection = (section: HomepageSection, index: number) => {
     const Component = componentMap[section.__typename as ComponentKey];
+    if (!Component) return null;
     const props = propsMap[section.__typename as ComponentKey](section as any);
 
     return <Component key={index} {...props} />;
   };
 
+
   return (
     <main className="flex flex-wrap justify-center">
-      {data?.homepage?.sections?.map((section, index) =>
-        renderSection(section, index)
+      {homeDataResponse?.homepage?.sections?.map((section: any, index: any) =>
+        renderSection(section, index),
       )}
     </main>
-  )
+  );
 }

@@ -1,23 +1,18 @@
 import React from "react";
 import { client } from "@/lib/apollo-client";
 import { GET_TITLE_BLOCK_DATA } from "@/lib/query/getTitleBlockData";
+import { useQuery } from "@apollo/client/react";
 import TabbedShowcase from "../title-blocks/tabbed-showcase";
 import BackgroundPatternSection from "../title-blocks/background-pattern-section";
 import TestimonialGrid from "../testimonials/testimonial-grid";
 import { BackgroundPatternSectionProps, BlockCardSectionProps, TestimonialGridSectionProps, TitleBlockSectionProps, TitleBlocksResponse } from "@/types";
 
-export default async function TitleBlocksSection({ data }: { data: TitleBlockSectionProps }) {
+export default function TitleBlocksSection({ data }: { data: TitleBlockSectionProps }) {
   let titleBlockData: TitleBlocksResponse | null = null;
 
-  try {
-    const response = await client.query({
-      query: GET_TITLE_BLOCK_DATA,
-    });
-    titleBlockData = response.data as TitleBlocksResponse;
-  } catch (error) {
-    console.error("Failed to fetch TitleBlock data:", error);
-    return null;
-  }
+  const {data: titleBlock} = useQuery(GET_TITLE_BLOCK_DATA)
+
+  titleBlockData = titleBlock as TitleBlocksResponse
 
   if (!titleBlockData || !titleBlockData.titleBlocks?.length) return null;
   const title = titleBlockData.titleBlocks[0].title

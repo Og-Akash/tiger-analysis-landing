@@ -11,6 +11,7 @@ export interface FaqAccordion {
 export interface ComponentHomepageFaqSection {
   __typename: "ComponentHomepageFaqSection";
   background_image?: UploadFile;
+  gradient_overlay?: UploadFile;
   heading: string;
   description: string;
   faqs: FaqAccordion[];
@@ -20,6 +21,7 @@ export interface ComponentHomepageFaqSection {
 export interface FaqSectionProps {
   data: {
     background_image?: UploadFile;
+    gradient_overlay?: UploadFile;
     heading: string;
     description: string;
     faqs: FaqAccordion[];

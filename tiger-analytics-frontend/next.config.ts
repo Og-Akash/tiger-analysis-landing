@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       },
       {
         hostname : "tiger-analysis-strapi.onrender.com",
+      },
+      {
+        hostname : "res.cloudinary.com",
       }
     ]
   }

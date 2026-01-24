@@ -58,6 +58,10 @@ export const GET_HOMEDATA = gql`
             alternativeText
             url
           }
+          gradient_overlay {
+            alternativeText
+            url
+          }
           description
           faqs {
             id
