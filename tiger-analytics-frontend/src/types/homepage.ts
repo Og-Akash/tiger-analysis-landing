@@ -8,21 +8,37 @@ import { ComponentHomepageCtaSection } from "./homepage-cta";
 import { ComponentHomepagePromoBanner } from "./homepage-promo-banner";
 
 // Union type for all homepage sections
-export type HomepageSection = 
-  | ComponentHomepageHero 
-  | ComponentHomepageSponsors 
-  | ComponentHomepageHighlight 
+export type HomepageSection =
+  | ComponentHomepageHero
+  | ComponentHomepageSponsors
+  | ComponentHomepageHighlight
   | ComponentHomepageTitleBlock
   | ComponentHomepageFaqSection
   | ComponentHomepageFeatureSection
   | ComponentHomepageCtaSection
   | ComponentHomepagePromoBanner;
 
+export interface SEO {
+  title: string;
+  description: string;
+  metaTitle: string;
+  metaDescription: string;
+  favicon: {
+    url: string;
+    alternativeText?: string;
+  };
+  shareImage: {
+    url: string;
+    alternativeText?: string;
+  };
+}
+
 // Main Homepage type
 export interface Homepage {
   __typename: "Homepage";
   title: string;
   sections: HomepageSection[];
+  seo?: SEO;
 }
 
 // GraphQL response type for homepage query

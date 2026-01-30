@@ -638,6 +638,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'homepage.promo-banner',
       ]
     >;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

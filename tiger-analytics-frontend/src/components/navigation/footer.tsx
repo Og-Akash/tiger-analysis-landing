@@ -30,9 +30,8 @@ import {
 } from "../icons/social-icons";
 
 export default function Footer() {
-  const { data, loading } = useQuery<FooterQueryResponse>(GET_FOOTER_DATA);
+  const { data } = useQuery<FooterQueryResponse>(GET_FOOTER_DATA);
 
-  if (loading) return "Footer loading...";
   if (!data) return null;
 
   const {

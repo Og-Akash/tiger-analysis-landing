@@ -1,6 +1,4 @@
-"use client";
-
-import { useQuery } from "@apollo/client/react";
+import { client } from "@/lib/apollo-client";
 import { GET_HOMEDATA } from "@/lib/query/getLandingData";
 import { HomepageResponse, HomepageSection } from "@/types";
 import {
@@ -8,26 +6,53 @@ import {
   propsMap,
   ComponentKey,
 } from "@/components/component-mapper";
+import { Metadata } from "next";
+import { getImageUrl } from "@/lib/utils";
 
-export default function HomePage() {
-  let homeDataResponse: HomepageResponse | null = null;
-  const { data, loading, error } = useQuery(GET_HOMEDATA, {
-    fetchPolicy: "network-only",
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await client.query<HomepageResponse>({
+    query: GET_HOMEDATA,
+    fetchPolicy: "no-cache",
   });
 
-  homeDataResponse = data as HomepageResponse
+  const seo = data?.homepage?.seo;
+  const faviconUrl = seo?.favicon?.url ? getImageUrl(seo.favicon.url) : null;
+  const shareImageUrl = seo?.shareImage?.url
+    ? getImageUrl(seo.shareImage.url)
+    : null;
 
-  if (loading) {
+  return {
+    title: seo?.title || seo?.metaTitle || "Tiger Analytics",
+    description: seo?.description || seo?.metaDescription,
+    openGraph: {
+      title: seo?.metaTitle || seo?.title,
+      description: seo?.metaDescription || seo?.description,
+      images: shareImageUrl ? [{ url: shareImageUrl }] : [],
+    },
+    icons: {
+      icon: faviconUrl || "/favicon.ico",
+    },
+  };
+}
+
+export default async function HomePage() {
+  let homeDataResponse: HomepageResponse | null = null;
+
+  try {
+    const { data } = await client.query({
+      query: GET_HOMEDATA,
+      fetchPolicy: "no-cache",
+    });
+    homeDataResponse = data as HomepageResponse;
+  } catch (error) {
+    console.error("Failed to fetch homepage data:", error);
     return (
       <div className="flex h-screen w-full bg-black items-center justify-center">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-black dark:border-gray-600 dark:border-t-white" />
+        <p className="text-white">
+          Something went wrong while loading the page.
+        </p>
       </div>
     );
-  }
-
-  if (error) {
-    console.error("Failed to fetch homepage data:", error);
-    return null; // Or render a friendly error message
   }
 
   const renderSection = (section: HomepageSection, index: number) => {
@@ -37,7 +62,6 @@ export default function HomePage() {
 
     return <Component key={index} {...props} />;
   };
-
 
   return (
     <main className="flex flex-wrap justify-center">

@@ -29,6 +29,11 @@
         "homepage.cta-section",
         "homepage.promo-banner"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

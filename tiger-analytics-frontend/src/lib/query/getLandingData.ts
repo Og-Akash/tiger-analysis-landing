@@ -121,6 +121,20 @@ export const GET_HOMEDATA = gql`
           }
         }
       }
+      seo {
+        title
+        description
+        metaTitle
+        metaDescription
+        favicon {
+          url
+          alternativeText
+        }
+        shareImage {
+          url
+          alternativeText
+        }
+      }
     }
   }
 `;
