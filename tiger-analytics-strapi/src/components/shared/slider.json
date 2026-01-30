@@ -7,11 +7,17 @@
   },
   "options": {},
   "attributes": {
-    "files": {
+    "slider_image": {
       "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": ["images"]
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slider_text": {
+      "type": "string",
+      "required": true
     }
   }
 }

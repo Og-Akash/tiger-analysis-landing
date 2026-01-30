@@ -33,6 +33,11 @@
         "preset": "defaultHtml"
       },
       "required": true
+    },
+    "hero_slider": {
+      "type": "component",
+      "component": "homepage.hero-slider",
+      "repeatable": false
     }
   },
   "config": {}

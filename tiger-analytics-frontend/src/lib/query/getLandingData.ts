@@ -13,6 +13,17 @@ export const GET_HOMEDATA = gql`
             url
             alternativeText
           }
+          hero_slider {
+            title
+            sub_title
+            hero_image_slider {
+              slider_text
+              slider_image {
+                url
+                alternativeText
+              }
+            }
+          }
           cta_btns {
             label
             target

@@ -229,6 +229,7 @@ export interface HomepageHero extends Struct.ComponentSchema {
   };
   attributes: {
     cta_btns: Schema.Attribute.Component<'shared.cta-btn', true>;
+    hero_slider: Schema.Attribute.Component<'homepage.hero-slider', false>;
     heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     subTitle: Schema.Attribute.RichText &
       Schema.Attribute.Required &
@@ -246,6 +247,18 @@ export interface HomepageHero extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+  };
+}
+
+export interface HomepageHeroSlider extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_hero_sliders';
+  info: {
+    displayName: 'hero_slider';
+  };
+  attributes: {
+    hero_image_slider: Schema.Attribute.Component<'shared.slider', true>;
+    sub_title: Schema.Attribute.Text;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -478,7 +491,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
     icon: 'address-book';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    slider_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    slider_text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -538,6 +552,7 @@ declare module '@strapi/strapi' {
       'homepage.faq-section': HomepageFaqSection;
       'homepage.feature-section': HomepageFeatureSection;
       'homepage.hero': HomepageHero;
+      'homepage.hero-slider': HomepageHeroSlider;
       'homepage.highlight': HomepageHighlight;
       'homepage.promo-banner': HomepagePromoBanner;
       'homepage.sponsors': HomepageSponsors;

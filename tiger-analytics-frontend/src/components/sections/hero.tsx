@@ -4,12 +4,14 @@ import LayoutWrapper from "../layouts/layout-wrapper";
 import { Button, ButtonVariantType } from "../ui/button";
 import Link from "next/link";
 import { getImageUrl } from "@/lib/utils";
+import HeroSlider from "./hero-slider";
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   cta_btns,
   heroImage,
   subTitle,
+  hero_slider,
 }) => {
   const imageUrl = getImageUrl(heroImage.url);
 
@@ -62,6 +64,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </Button>
               );
             })}
+          </div>
+        )}
+
+        {hero_slider && (
+          <div className="mt-20 sm:mt-40">
+            <HeroSlider data={hero_slider} />
           </div>
         )}
       </LayoutWrapper>

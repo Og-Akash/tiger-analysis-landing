@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_homepage_hero_sliders",
+  "info": {
+    "displayName": "hero_slider"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "sub_title": {
+      "type": "text",
+      "required": false
+    },
+    "hero_image_slider": {
+      "type": "component",
+      "component": "shared.slider",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

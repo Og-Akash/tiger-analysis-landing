@@ -31,6 +31,7 @@ export const propsMap: Record<ComponentKey, (data: any) => any> = {
     subTitle: data.subTitle,
     heroImage: data.heroImage,
     cta_btns: data.cta_btns,
+    hero_slider: data.hero_slider,
   }),
   "ComponentHomepageSponsors": (data: ComponentHomepageSponsors) => ({
     data: {
