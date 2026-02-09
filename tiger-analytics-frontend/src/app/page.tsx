@@ -1,5 +1,5 @@
 import { client } from "@/lib/apollo-client";
-import { GET_HOMEDATA } from "@/lib/query/getLandingData";
+import { GET_HOMEDATA_WITH_STATUS } from "@/lib/query/getLandingData";
 import { HomepageResponse, HomepageSection } from "@/types";
 import {
   componentMap,
@@ -8,10 +8,17 @@ import {
 } from "@/components/component-mapper";
 import { Metadata } from "next";
 import { getImageUrl } from "@/lib/utils";
+import { draftMode } from "next/headers";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const draft = await draftMode();
+  const status = draft.isEnabled ? "DRAFT" : "PUBLISHED";
+
   const { data } = await client.query<HomepageResponse>({
-    query: GET_HOMEDATA,
+    query: GET_HOMEDATA_WITH_STATUS,
+    variables: { status },
     fetchPolicy: "no-cache",
   });
 
@@ -38,9 +45,14 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   let homeDataResponse: HomepageResponse | null = null;
 
+  // Check if draft mode is enabled
+  const draft = await draftMode();
+  const status = draft.isEnabled ? "DRAFT" : "PUBLISHED";
+
   try {
     const { data } = await client.query({
-      query: GET_HOMEDATA,
+      query: GET_HOMEDATA_WITH_STATUS,
+      variables: { status },
       fetchPolicy: "no-cache",
     });
     homeDataResponse = data as HomepageResponse;

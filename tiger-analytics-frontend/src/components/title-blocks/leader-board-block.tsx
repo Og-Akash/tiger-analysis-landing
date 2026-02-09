@@ -5,8 +5,14 @@ import Image from "next/image";
 import { extractCtaItems, getImageUrl } from "@/lib/utils";
 import { CtaButton, LeaderBoardBlock } from "@/types";
 
-export default function CompetitionLeaderBoardBlock({ data }: { data: LeaderBoardBlock }) {
-  const { cta_link, label, target, variant } = extractCtaItems(data.cta) as CtaButton;
+export default function CompetitionLeaderBoardBlock({
+  data,
+}: {
+  data: LeaderBoardBlock;
+}) {
+  const { cta_link, label, target, variant } = extractCtaItems(
+    data.cta,
+  ) as CtaButton;
 
   return (
     <section className="sm:mx-[6.5vw] sm:my-48 flex w-full lg:max-w-2/3 relative p-6 2xl:p-8 rounded-2xl bg-white h-fit">
@@ -16,7 +22,18 @@ export default function CompetitionLeaderBoardBlock({ data }: { data: LeaderBoar
             dangerouslySetInnerHTML={{
               __html: data.title as string,
             }}
-            className="font-inter font-light text-3xl md:text-4xl md:leading-10 lg:text-5xl xl:text-6xl 2xl:text-7xl lg:leading-17 2xl:leading-20 lg:tracking-[-3.84px]"
+            className="
+  font-inter font-light
+  [&>p>span]:text-3xl!
+  md:[&>p>span]:text-4xl!
+  md:[&>p>span]:leading-10
+  lg:[&>p>span]:text-5xl!
+  xl:[&>p>span]:text-6xl!
+  2xl:[&>p>span]:text-7xl!
+  lg:[&>p>span]:leading-17
+  2xl:[&>p>span]:leading-20
+  lg:[&>p>span]:tracking-[-3.84px]
+"
           />
         )}
         {data.description && (
